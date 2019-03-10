@@ -1,0 +1,23 @@
+Sebelum mulai mengerjakan:
+
+- Jalankan method main() di file Arena untuk melihat program bekerja
+- Lihat semua class dan pahami fungsinya.
+- Setelah selesai mengerjakan, zip source, beri nama filenya quiz1-pbo-ilkom-nim1-nim2
+  Kirim file zip tersebut ke yudi@upi.edu
+
+Soal
+
+1. (5) Pada class Arena, lengkapi NIM dan NAMA di method bertanding().
+2. (15) Lengkapi Arena.bertanding() untuk memperlihatkan pemenang. Pemenang adalah yg skor kesehatannya>0.
+3. (25) Tambahkan atribut "nama" pada class Senjata.
+        Modifikasi Arena.bertanding() agar menampilkan nama senjata yang digunakan
+        "Robot menyerang" menjadi "Robot menyerang dengan senjata [nama senjata]"
+4. (25) Buat kelas baru SenjataKilat yang merupakan turunan dari Senjata. SenjataKilat ini memiliki kekuatan 40.
+        Modifikasi Arena.main() agar robot1 menggunakan SenjataKilat ini.
+5. (30) Lengkapi class Perisai (tambah skor kekuatan), tambahkan ke Robot, modifikasi Robot.Serang() agar
+        memperhitungkan perisai lawan (detil rincian bagaimana perisai berfungsi bebas).
+
+Bonus (30)
+- Modifikasi class Robot agar dapat memiliki lebih dari satu senjata.
+- Buat Arena baru yaitu ArenaInteraktif. Pada class ini user bisa memilih senjata dan perisai yang diinginkan.
+  Pada saat bertanding user bisa memilih senjata yang akan digunakan untuk menyerang.
