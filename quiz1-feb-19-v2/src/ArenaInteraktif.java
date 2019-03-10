@@ -1,15 +1,6 @@
 import java.util.Scanner;
 
 public class ArenaInteraktif extends Arena {
-    private Robot robot1;
-    private Robot robot2;
-
-    @Override
-    //harus di Override, jika menggunakan method Super class hanya akan menunjuk variable robot1 robot2 di Super-class atau Parent-Class
-    public void tambahRobot(Robot r1,Robot r2) {
-        robot1 = r1;
-        robot2 = r2;
-    }
 
     @Override
     public void bertanding() {
@@ -27,8 +18,11 @@ public class ArenaInteraktif extends Arena {
         System.out.print("Pertandingan dimulai =====\n");
 
         //player
-        Robot robotAktif = robot1;
-        Robot robotPasif = robot2;
+        Robot robotAktif = getRobot1(); //kita gunakan objek yg ada pada super-class
+        Robot robotPasif = getRobot2(); //kita gunakan objek yg ada pada super-class
+        System.out.println(robotAktif.nama);
+        System.out.println(robotPasif.nama);
+
         Scanner input = new Scanner(System.in);
         Scanner input2 = new Scanner(System.in);
 
@@ -124,8 +118,8 @@ public class ArenaInteraktif extends Arena {
             System.out.println("Robot menyerang dengan senjata " + robotAktif.oSenjata.nama);
             robotAktif.serang(robotPasif);
             //print kesehatan
-            robot1.printStatistik();
-            robot2.printStatistik();
+            getRobot1().printStatistik();
+            getRobot2().printStatistik();
             //tukar peran
             Robot temp = robotAktif; //supaya tdk tertimpa
             robotAktif = robotPasif;
@@ -138,12 +132,12 @@ public class ArenaInteraktif extends Arena {
 
         //cek pemenang
         //lengkapi
-        if(robot1.kesehatan <=0 && robot2.kesehatan <=0){
+        if(getRobot1().kesehatan <=0 && getRobot2().kesehatan <=0){
             System.out.println("Pemenang: Tidak Ada (Draw)");
-        }else if(robot1.kesehatan >0){
-            System.out.println("Pemenang: " + robot1.nama);
-        }else if(robot2.kesehatan >0){
-            System.out.println("Pemenang: " + robot2.nama);
+        }else if(getRobot1().kesehatan >0){
+            System.out.println("Pemenang: " + getRobot1().nama);
+        }else if(getRobot2().kesehatan >0){
+            System.out.println("Pemenang: " + getRobot2().nama);
         }
     }
 
@@ -152,6 +146,7 @@ public class ArenaInteraktif extends Arena {
         ArenaInteraktif oArena = new ArenaInteraktif();
 
         //siapkan robot
+        //player
         Robot robot1 = new Robot("Robot pertama");
         Robot robot2 = new Robot("Robot kedua");
 
@@ -192,9 +187,9 @@ public class ArenaInteraktif extends Arena {
         robot2.gunakanPerisai(robot2.inventoryPerisai.get(0));
 
         //tambahkan robot ke arena
-        oArena.tambahRobot(robot1,robot2);
+        oArena.tambahRobot(robot1,robot2); //kita gunakan objek robot1 robot2 yg ada pada super-class
 
         //mainkan
-        oArena.bertanding();
+        oArena.bertanding(); //kita gunakan method sub-class krn behaviour nya sangat berbeda
     }
 }

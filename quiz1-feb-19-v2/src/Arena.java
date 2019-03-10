@@ -7,6 +7,13 @@ public class Arena {
     private Robot robot1;
     private Robot robot2;
 
+    public Robot getRobot1(){
+        return this.robot1;
+    }
+    public Robot getRobot2(){
+        return this.robot2;
+    }
+
     public void tambahRobot(Robot r1,Robot r2) {
         robot1 = r1;
         robot2 = r2;
